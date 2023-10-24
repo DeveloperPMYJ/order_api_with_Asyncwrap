@@ -12,7 +12,7 @@ const createApp = () => {
   app.use(morgan('dev'));
   app.use(router);
 
-  app.use(errorHandler);
+  app.use(errorHandler); // errorHandler Middleware로 사용 중
 
   return app;
 };
