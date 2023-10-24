@@ -2,10 +2,9 @@ const { orderService } = require('../services');
 
 console.log('controller connected 연결 확인');
 
-// const createOrders = async (req, res, next) => {
+// const createOrders = async (req, res, next) => { //사실 next는 async 찍으나 안 찍으나 똑같음. console.log로 확인함 
 const createOrders = async (req, res) => {
-  try {
-    const userId = req.userId; //const { userId } = req;  // userId는 토큰에서 -> 미들웨어 사용
+  const userId = req.userId; //const { userId } = req;  // userId는 토큰에서 -> 미들웨어 사용
 
     // 필요한 값들 다 req 에서 받아옴
     const {
@@ -27,7 +26,7 @@ const createOrders = async (req, res) => {
     );
 
     return res.status(200).json({ message: 'Success' });
-  } catch (error) {
+  } (error) {
     console.log(error);
     console.log(' controller error ');
     // // next(error);
@@ -48,7 +47,6 @@ const createOrders = async (req, res) => {
 
     res.status(error.status || 500).json({ message: error.message });
     //   res.status(error.status || 500).json({ message: errorMessages });
-  }
 };
 
 console.log('createOrders 확인 ');
